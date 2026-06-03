@@ -3,8 +3,14 @@ class VigenereCipher:
         pass
     
     def vigenere_encrypt(self, plain_text, key):
+        
+
+        if not key.isalpha():
+            raise ValueError("Khoá chỉ được chứa các ký tự chữ!!")
+        
         encrypted_text = ""
         key_index = 0
+
         for char in plain_text:
             if char.isalpha():
                 key_shift = ord(key[key_index % len(key)].upper()) - ord('A')
@@ -18,8 +24,13 @@ class VigenereCipher:
         return encrypted_text
     
     def vigenere_decrypt(self, encrypted_text, key):
+        
+        if not key.isalpha():
+            raise ValueError("Khoá chỉ được chứa các ký tự chữ!!")
+        
         decrypted_text = ""
         key_index = 0
+
         for char in encrypted_text:
             if char.isalpha():
                 key_shift = ord(key[key_index % len(key)].upper()) - ord('A')

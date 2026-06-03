@@ -6,6 +6,10 @@ class PlayFairCipher:
         pass
     
     def create_playfair_matrix(self, key):
+
+        if not key.isalpha():
+            raise ValueError("Khoá phải là ký tự chữ!!")
+
         key = key.replace("J", "I")
         key = key.upper()
         key_set = set(key)
@@ -29,6 +33,7 @@ class PlayFairCipher:
                     return row, col
                 
     def playfair_encrypt(self, plain_text, matrix):
+        
         
         plain_text = plain_text.replace("J", "I")
         plain_text = plain_text.upper()
