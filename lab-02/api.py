@@ -65,7 +65,7 @@ def decrypt():
 #PLAYFAIR CIPHER ALGORITHM
 playfair_cipher = PlayFairCipher()
 
-@app.route("/api/playfair/encrypt", methods=["POST"])
+@app.route("/api/playfair/matrix", methods=["POST"])
 def playfair_creatematrix():
     data = request.json
     key = data['key']
