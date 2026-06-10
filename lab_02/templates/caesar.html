@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caesar Cipher</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <style>
+        body{
+            background-color:#f5f6fa;
+        }
+
+        .cipher-card{
+            max-width:700px;
+            margin:auto;
+            margin-top:40px;
+            margin-bottom:40px;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 0 15px rgba(0,0,0,0.15);
+        }
+
+        .page-title{
+            text-align:center;
+            font-weight:bold;
+            margin-bottom:25px;
+        }
+
+        .section-title{
+            color:#007bff;
+            font-weight:bold;
+            margin-bottom:20px;
+        }
+
+        hr{
+            margin-top:30px;
+            margin-bottom:30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="cipher-card">
+
+        <h2 class="page-title">
+            CAESAR CIPHER
+        </h2>
+
+        <h5 class="section-title">
+            Encryption
+        </h5>
+
+        <form method="POST" action="/encrypt">
+
+            <div class="form-group">
+                <label>Plain Text</label>
+                <input type="text"
+                       class="form-control"
+                       name="inputPlainText"
+                       placeholder="Enter plain text"
+                       required
+                       autofocus>
+            </div>
+
+            <div class="form-group">
+                <label>Key</label>
+                <input type="number"
+                       class="form-control"
+                       name="inputKeyPlain"
+                       placeholder="Enter key (1 - 25)"
+                       min="1"
+                       max="25"
+                       required>
+            </div>
+
+            <button type="submit"
+                    class="btn btn-success">
+                Encrypt
+            </button>
+
+        </form>
+
+        <hr>
+
+        <h5 class="section-title">
+            Decryption
+        </h5>
+
+        <form method="POST" action="/decrypt">
+
+            <div class="form-group">
+                <label>Cipher Text</label>
+                <input type="text"
+                       class="form-control"
+                       name="inputCipherText"
+                       placeholder="Enter cipher text"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Key</label>
+                <input type="number"
+                       class="form-control"
+                       name="inputKeyCipher"
+                       placeholder="Enter key (1 - 25)"
+                       min="1"
+                       max="25"
+                       required>
+            </div>
+
+            <button type="submit"
+                    class="btn btn-danger">
+                Decrypt
+            </button>
+
+        </form>
+
+        <hr>
+
+        <a href="/"
+           class="btn btn-secondary">
+            Back Home
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

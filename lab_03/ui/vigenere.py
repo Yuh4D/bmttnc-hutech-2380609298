@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file './ui/vigenere.ui'
+# Form implementation generated from reading ui file '.\ui\vigenere.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #
@@ -9,8 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import os
-os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = "../platforms"
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -22,7 +21,12 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(230, 20, 271, 21))
+        self.label.setGeometry(QtCore.QRect(230, 20, 351, 21))
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label.setFont(font)
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(30, 70, 81, 16))
@@ -57,9 +61,17 @@ class Ui_MainWindow(object):
         self.pushDecrypt = QtWidgets.QPushButton(self.centralwidget)
         self.pushDecrypt.setGeometry(QtCore.QRect(470, 390, 111, 41))
         self.pushDecrypt.setObjectName("pushDecrypt")
+        self.label_5 = QtWidgets.QLabel(self.centralwidget)
+        self.label_5.setGeometry(QtCore.QRect(10, 520, 771, 41))
+        font = QtGui.QFont()
+        font.setFamily("MS Reference Sans Serif")
+        font.setPointSize(16)
+        self.label_5.setFont(font)
+        self.label_5.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_5.setObjectName("label_5")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 33))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -78,3 +90,14 @@ class Ui_MainWindow(object):
         self.label_4.setText(_translate("MainWindow", "Cipher Text:"))
         self.pushEncrypt.setText(_translate("MainWindow", "Encrypt"))
         self.pushDecrypt.setText(_translate("MainWindow", "Decrypt"))
+        self.label_5.setText(_translate("MainWindow", "Nguyễn Đình Huy-2380609298"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())

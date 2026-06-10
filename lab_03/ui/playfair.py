@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file './ui/playfair.ui'
+# Form implementation generated from reading ui file '.\ui\playfair.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #
@@ -9,8 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import os
-os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = "../platforms"
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -19,10 +18,15 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(20)
         MainWindow.setFont(font)
+        MainWindow.setTabShape(QtWidgets.QTabWidget.Rounded)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(240, 20, 241, 21))
+        self.label.setGeometry(QtCore.QRect(240, 20, 281, 21))
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.label.setFont(font)
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(30, 70, 81, 16))
@@ -43,7 +47,7 @@ class Ui_MainWindow(object):
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(30, 540, 121, 21))
+        self.label_5.setGeometry(QtCore.QRect(20, 490, 121, 21))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.label_5.setFont(font)
@@ -58,21 +62,29 @@ class Ui_MainWindow(object):
         self.textCipherText.setGeometry(QtCore.QRect(160, 290, 421, 64))
         self.textCipherText.setObjectName("textCipherText")
         self.textMatrix = QtWidgets.QTextEdit(self.centralwidget)
-        self.textMatrix.setGeometry(QtCore.QRect(160, 540, 421, 64))
+        self.textMatrix.setGeometry(QtCore.QRect(160, 420, 421, 181))
         self.textMatrix.setReadOnly(True)
         self.textMatrix.setObjectName("textMatrix")
         self.pushEncrypt = QtWidgets.QPushButton(self.centralwidget)
-        self.pushEncrypt.setGeometry(QtCore.QRect(50, 420, 111, 41))
+        self.pushEncrypt.setGeometry(QtCore.QRect(70, 370, 111, 41))
         self.pushEncrypt.setObjectName("pushEncrypt")
         self.pushDecrypt = QtWidgets.QPushButton(self.centralwidget)
-        self.pushDecrypt.setGeometry(QtCore.QRect(200, 420, 111, 41))
+        self.pushDecrypt.setGeometry(QtCore.QRect(230, 370, 111, 41))
         self.pushDecrypt.setObjectName("pushDecrypt")
         self.pushCreateMatrix = QtWidgets.QPushButton(self.centralwidget)
-        self.pushCreateMatrix.setGeometry(QtCore.QRect(350, 420, 181, 41))
+        self.pushCreateMatrix.setGeometry(QtCore.QRect(420, 370, 181, 41))
         self.pushCreateMatrix.setObjectName("pushCreateMatrix")
+        self.label_6 = QtWidgets.QLabel(self.centralwidget)
+        self.label_6.setGeometry(QtCore.QRect(20, 610, 771, 41))
+        font = QtGui.QFont()
+        font.setFamily("MS Reference Sans Serif")
+        font.setPointSize(16)
+        self.label_6.setFont(font)
+        self.label_6.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_6.setObjectName("label_6")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 33))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -93,3 +105,14 @@ class Ui_MainWindow(object):
         self.pushEncrypt.setText(_translate("MainWindow", "Encrypt"))
         self.pushDecrypt.setText(_translate("MainWindow", "Decrypt"))
         self.pushCreateMatrix.setText(_translate("MainWindow", "Create Matrix"))
+        self.label_6.setText(_translate("MainWindow", "Nguyễn Đình Huy-2380609298"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())

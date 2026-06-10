@@ -11,7 +11,28 @@ class MyApp(QMainWindow):
         self.ui.pushEncrypt.clicked.connect(self.call_api_encrypt)
         self.ui.pushDecrypt.clicked.connect(self.call_api_decrypt)
 
+    def validate_key(self):
+        key = self.ui.textKey.toPlainText().strip()
+
+ 
+        if not key.isdigit():
+            QMessageBox.warning(self, "Khóa không hợp lệ","Khóa phải là số nguyên từ 1 đến 25.")
+            return False
+
+        key = int(key)
+
+
+        if key < 1 or key > 25:
+            QMessageBox.warning(self, "Khóa không hợp lệ", "Khóa Caesar chỉ được từ 1 đến 25.")
+            return False
+
+        return True
+
+
     def call_api_encrypt(self):
+        if not self.validate_key():
+            return
+
         url = "http://127.0.0.1:5000/api/caesar/encrypt"
         payload = {
             "plain_text": self.ui.textPlainText.toPlainText(),
@@ -33,6 +54,9 @@ class MyApp(QMainWindow):
             print("Error: %s" % e.message)
 
     def call_api_decrypt(self):
+        if not self.validate_key():
+            return
+        
         url = "http://127.0.0.1:5000/api/caesar/decrypt"
         payload = {
             "cipher_text": self.ui.textCipherText.toPlainText(),

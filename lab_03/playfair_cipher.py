@@ -12,7 +12,21 @@ class MyApp(QMainWindow):
         self.ui.pushDecrypt.clicked.connect(self.call_api_decrypt)
         self.ui.pushCreateMatrix.clicked.connect(self.call_api_create_matrix)
 
+
+    def validate_key(self):
+        key = self.ui.textKey.toPlainText()
+        if not key.isalpha():
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Warning)
+            msg.setWindowTitle("Khóa không hợp lệ!")
+            msg.setText("Khóa phải là chữ")
+            msg.exec_()
+            return False
+        return True
+
     def call_api_encrypt(self):
+        if not self.validate_key():
+            return
         url = "http://127.0.0.1:5000/api/playfair/encrypt"
         payload = {
             "plain_text": self.ui.textPlainText.toPlainText(),
@@ -34,6 +48,8 @@ class MyApp(QMainWindow):
             print("Error: %s" % e.message)
 
     def call_api_decrypt(self):
+        if not self.validate_key():
+            return
         url = "http://127.0.0.1:5000/api/playfair/decrypt"
         payload = {
             "cipher_text": self.ui.textCipherText.toPlainText(),
@@ -55,7 +71,10 @@ class MyApp(QMainWindow):
             print("Error: %s" % e.message)
 
     def call_api_create_matrix(self):
-        url = "http://127.0.0.1:5000/api/playfair/matrix"
+        if not self.validate_key():
+            return
+
+        url = "http://127.0.0.1:5000/api/playfair/creatematrix"
         payload = {
             "key": self.ui.textKey.toPlainText()
         }
